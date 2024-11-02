@@ -1,0 +1,85 @@
+\subsection{Ước lượng kênh bằng kĩ thuật học sâu}
+
+Phương pháp ước lượng kênh truyền vô tuyến dựa trên kỹ thuật học sâu (Deep Learning - DL) đã nổi lên như một giải pháp tiên tiến trong các hệ thống thông tin không dây, 
+đặc biệt trong bối cảnh các hệ thống ngày càng phức tạp như MIMO hay OFDM. 
+Các kỹ thuật học sâu có khả năng tự động học mô hình và xử lý các vấn đề phi tuyến mà các phương pháp truyền thống như LS hay MMSE gặp khó khăn. 
+
+\subsubsection{Nguyên lý của ước lượng kênh dựa trên học sâu}
+
+Phương pháp ước lượng kênh truyền dựa trên học sâu sử dụng mạng nơ-ron nhân tạo (Artificial Neural Networks - ANN) để học cách biểu diễn và dự đoán kênh truyền từ dữ liệu nhận được, 
+thay vì dựa trên các mô hình thống kê hoặc các công thức toán học cố định như trong MMSE hoặc LS. 
+Mục tiêu chính là học mối quan hệ giữa tín hiệu nhận được và kênh truyền, từ đó ước lượng đặc tính kênh một cách chính xác và tự động.
+
+Kênh truyền có thể được coi như một bản đồ hai chiều (2D) trong miền thời gian và tần số. 
+Ý tưởng của DL là mô hình hóa kênh truyền như một hình ảnh hai chiều, với giá trị của kênh tại các vị trí pilot đã biết được xem như hình ảnh có độ phân giải thấp (LR - Low Resolution). 
+Sau đó, mạng nơ-ron học cách "nâng cấp" hình ảnh đó thành hình ảnh có độ phân giải cao (HR - High Resolution), tức là ước lượng kênh tại các vị trí chưa biết.
+
+\subsubsection{Kiến trúc mạng học sâu cho ước lượng kênh}
+
+Phương pháp học sâu cho ước lượng kênh có thể sử dụng nhiều loại kiến trúc khác nhau, nhưng phổ biến nhất là Mạng nơ-ron tích chập (CNN - Convolutional Neural Networks). 
+CNN đặc biệt phù hợp cho việc xử lý dữ liệu dạng lưới như hình ảnh hoặc dữ liệu thời gian-tần số trong các hệ thống thông tin không dây.
+
+\textbf{Mạng siêu phân giải ảnh (Super-Resolution CNN - SRCNN)}
+
+Mô hình \textbf{SRCNN} được áp dụng để nâng cao độ phân giải của các hình ảnh đại diện cho kênh truyền. 
+Kênh truyền ở các vị trí pilot được coi như một ảnh có độ phân giải thấp, 
+và mạng CNN sẽ thực hiện các phép biến đổi để dự đoán các giá trị kênh tại các vị trí chưa biết, 
+giống như việc "phóng to" hình ảnh từ độ phân giải thấp lên độ phân giải cao.
+
+SRCNN thường bao gồm các lớp sau:
+\begin{itemize}
+    \item \textbf{Lớp tích chập đầu tiên}: 
+    Sử dụng các bộ lọc có kích thước lớn (ví dụ: $9 \times 9$) để học các đặc trưng ban đầu từ ảnh đầu vào.
+    \item \textbf{Lớp tích chập giữa}: 
+    Dùng các bộ lọc nhỏ hơn (ví dụ: $1 \times 1$ hoặc $3 \times 3$) để học các đặc trưng chi tiết hơn.
+    \item \textbf{Lớp tích chập cuối}: 
+    Tái tạo lại ảnh có độ phân giải cao (ước lượng kênh đầy đủ) từ các đặc trưng đã học.
+\end{itemize}
+
+\textbf{Mạng khử nhiễu ảnh (Denoising CNN - DnCNN)}
+
+Một thách thức lớn trong ước lượng kênh là sự hiện diện của nhiễu. 
+DnCNN là một mô hình CNN được thiết kế để loại bỏ nhiễu khỏi hình ảnh. 
+Trong bối cảnh ước lượng kênh, DnCNN được sử dụng để cải thiện chất lượng của kênh ước lượng sau khi mạng SRCNN đã ước lượng được các giá trị ban đầu, 
+bằng cách loại bỏ các thành phần bị ảnh hưởng bởi nhiễu.
+
+Mạng DnCNN bao gồm nhiều lớp tích chập với bộ lọc nhỏ (ví dụ: 3×3), 
+giúp loại bỏ nhiễu từ tín hiệu đã được ước lượng, 
+và sử dụng cơ chế học dựa trên residual learning (học phần dư) để tăng tốc quá trình hội tụ của mô hình.
+
+\subsubsection{Quy trình ước lượng kênh dựa trên học sâu}
+
+Các bước chính trong quy trình ước lượng kênh dựa trên học sâu:
+
+\textbf{Thu thập dữ liệu và tiền xử lý}
+
+\begin{itemize}
+    \item \textbf{Thu thập dữ liệu}: 
+    Dữ liệu bao gồm các tín hiệu nhận được tại máy thu cùng với các thông tin pilot đã biết. 
+    Các mẫu dữ liệu này sẽ được dùng để huấn luyện mô hình DL.
+    \item \textbf{Chuẩn hóa dữ liệu}: 
+    Dữ liệu phải được chuẩn hóa để phù hợp với đầu vào của mạng nơ-ron. 
+    Ví dụ, dữ liệu có thể được chuẩn hóa về các phạm vi giá trị chuẩn để mô hình học dễ dàng hơn.
+\end{itemize}
+
+\textbf{Huấn luyện mô hình học sâu}
+
+Mạng học sâu (SRCNN, DnCNN) được huấn luyện trên dữ liệu từ kênh truyền để học cách ước lượng các giá trị kênh dựa trên các mẫu tín hiệu nhận được. 
+Quá trình huấn luyện thường bao gồm:
+
+\begin{itemize}
+    \item \textbf{Xác định hàm mất mát}: Hàm mất mát thường được sử dụng là Mean Square Error (MSE) giữa kênh ước lượng và kênh thực, tức là:
+
+    \begin{equation}
+        \mathcal{L} = \frac{1}{N} \sum_{i=1}^{N} \| \bm{H_i} - \bm{\hat{H}_i} \|^2
+    \end{equation}
+    
+    Trong đó \( \bm{H_i} \) là kênh thực và \( \bm{\hat{H}_i} \) là kênh ước lượng từ mạng nơ-ron.
+
+    \item \textbf{Tối ưu hóa}: Các kỹ thuật tối ưu hóa như Stochastic Gradient Descent (SGD) hoặc Adam được sử dụng để cập nhật trọng số của mạng nhằm giảm hàm mất mát.
+\end{itemize}
+
+\textbf{Kiểm thử và đánh giá}
+
+Sau khi huấn luyện, mô hình DL được kiểm thử trên một tập dữ liệu mới để đánh giá khả năng ước lượng kênh. 
+Kết quả thường được so sánh với các phương pháp truyền thống như LS hoặc MMSE dựa trên các chỉ số như MSE hoặc Signal-to-Noise Ratio (SNR).

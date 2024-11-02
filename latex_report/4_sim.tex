@@ -1,0 +1,132 @@
+\section{Chương trình Python mô phỏng ước lượng kênh truyền}
+
+File \verb|models.py| chứa các hàm phục vụ cho việc ước lượng kênh truyền vô tuyến bằng kỹ thuật học sâu, với hai mô hình chính là SRCNN và DnCNN.
+
+Hàm \verb|psnr()| tính toán chỉ số PSNR (Peak Signal-to-Noise Ratio), 
+dùng để đánh giá chất lượng hình ảnh tái tạo \verb|target| so với ảnh gốc \verb|ref|.
+Công thức tính PSNR dựa trên căn sai số bình phương trung bình (RMSE) giữa hai ảnh, sau đó chuyển đổi sang dB:
+
+\begin{lstlisting}[language=Python]
+def psnr(target, ref):
+    # assume RGB image
+    target_data = np.array(target, dtype=float)
+    ref_data = np.array(ref, dtype=float)
+
+    diff = ref_data - target_data
+    diff = diff.flatten('C')
+
+    rmse = math.sqrt(np.mean(diff ** 2.))
+
+    return 20 * math.log10(255. / rmse)
+\end{lstlisting}
+
+Hàm \verb|interpolation(noisy, snr, number_of_pilot, interp)| thực hiện nội suy tín hiệu nhận được dựa trên số lượng pilot đã chọn và phương pháp nội suy (RBF hoặc spline).
+Hàm này tạo ra ảnh kênh truyền có độ phân giải cao bằng cách nội suy từ các giá trị pilot, sau đó trả về ảnh nội suy với kích thước tương ứng.
+
+Hàm \verb|SRCNN_model()| tạo và trả về mô hình Super-Resolution Convolutional Neural Network (SRCNN). Mô hình bao gồm 3 lớp tích chập:
+\begin{itemize}
+    \item Lớp đầu tiên có 64 bộ lọc kích thước $9 \times 9$.
+    \item Lớp thứ hai có 32 bộ lọc kích thước $1 \times 1$.
+    \item Lớp cuối cùng có 1 bộ lọc kích thước $5 \times 5$.
+\end{itemize}
+
+Mô hình được biên dịch với hàm mất mát mean squared error (MSE) và được tối ưu bằng Adam.
+
+\begin{lstlisting}[language=Python]
+def SRCNN_model():
+    input_shape = (72, 14, 1)
+    x = Input(shape=input_shape)
+    c1 = Conv2D(64, (9, 9), activation="relu", padding="same", kernel_initializer="he_normal")(x)
+    c2 = Conv2D(32, (1, 1), activation="relu", padding="same", kernel_initializer="he_normal")(c1)
+    c3 = Conv2D(1, (5, 5), padding="same", kernel_initializer="he_normal")(c2)
+    # c4 = Input(shape = input_shape)(c3)
+    model = Model(inputs=x, outputs=c3)
+    # compile
+    adam = Adam(learning_rate=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-8)
+    model.compile(optimizer=adam, loss='mean_squared_error', metrics=['mean_squared_error'])
+    return model
+\end{lstlisting}
+
+Hàm \verb|SRCNN_train()| huấn luyện mô hình SRCNN trên dữ liệu kênh truyền. 
+Đầu tiên, hàm này gọi hàm \verb|SRCNN_model()| để tạo mô hình và sử dụng dữ liệu đầu vào để huấn luyện. 
+Hàm này cũng sử dụng \verb|ModelCheckpoint| để lưu mô hình với kết quả tốt nhất dựa trên validation loss.
+
+\begin{lstlisting}[language=Python]
+def SRCNN_train(train_data, train_label, val_data, val_label, channel_model, num_pilots, SNR):
+    srcnn_model = SRCNN_model()
+    print(srcnn_model.summary())
+
+    checkpoint = ModelCheckpoint("SRCNN_check.h5", monitor='val_loss', verbose=1, save_best_only=True,
+                                 save_weights_only=False, mode='min')
+    callbacks_list = [checkpoint]
+
+    srcnn_model.fit(train_data, train_label, batch_size=128, validation_data=(val_data, val_label),
+                    callbacks=callbacks_list, shuffle=True, epochs=300, verbose=0)
+
+    srcnn_model.save_weights("SRCNN_" + channel_model + "_" + str(num_pilots) + "_" + str(SNR) + ".h5")
+\end{lstlisting}
+
+Hàm \verb|SRCNN_predict()| tải trọng số của mô hình SRCNN đã huấn luyện từ tệp và sử dụng mô hình để dự đoán dữ liệu đầu vào \verb|input_data|.
+
+\begin{lstlisting}[language=Python]
+def SRCNN_predict(input_data, channel_model, num_pilots, SNR):
+    srcnn_model = SRCNN_model()
+    srcnn_model.load_weights("SRCNN_" + channel_model + "_" + str(num_pilots) + "_" + str(SNR) + ".h5")
+    predicted = srcnn_model.predict(input_data)
+    return predicted
+\end{lstlisting}
+
+Hàm \verb|DNCNN_model()| tạo và trả về mô hình Denoising Convolutional Neural Network (DnCNN). 
+Mô hình bao gồm:
+\begin{itemize}
+    \item Lớp tích chập đầu tiên với 64 bộ lọc $3 \times 3$ và hàm kích hoạt ReLU.
+    \item 18 lớp tiếp theo gồm tích chập, batch normalization và ReLU.
+    \item Lớp cuối cùng thực hiện phép trừ đầu vào với kết quả tích chập để loại bỏ nhiễu khỏi tín hiệu.
+\end{itemize}
+
+\begin{lstlisting}[language=Python]
+def DNCNN_model():
+    inpt = Input(shape=(None, None, 1))
+    # 1st layer, Conv+relu
+    x = Conv2D(filters=64, kernel_size=(3, 3), strides=(1, 1), padding='same')(inpt)
+    x = Activation('relu')(x)
+    # 18 layers, Conv+BN+relu
+    for i in range(18):
+        x = Conv2D(filters=64, kernel_size=(3, 3), strides=(1, 1), padding='same')(x)
+        x = BatchNormalization(axis=-1, epsilon=1e-3)(x)
+        x = Activation('relu')(x)
+        # last layer, Conv
+    x = Conv2D(filters=1, kernel_size=(3, 3), strides=(1, 1), padding='same')(x)
+    x = Subtract()([inpt, x])  # input - noise
+    model = Model(inputs=inpt, outputs=x)
+    adam = Adam(learning_rate=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-8)
+    model.compile(optimizer=adam, loss='mean_squared_error', metrics=['mean_squared_error'])
+    return model
+\end{lstlisting}
+
+Hàm \verb|DNCNN_train()| huấn luyện mô hình DnCNN trên dữ liệu kênh truyền và lưu lại mô hình tốt nhất. 
+Quy trình tương tự như hàm huấn luyện cho SRCNN, với một checkpoint để lưu mô hình tốt nhất dựa trên validation loss.
+
+\begin{lstlisting}[language=Python]
+def DNCNN_train(train_data, train_label, val_data, val_label, channel_model, num_pilots, SNR):
+    dncnn_model = DNCNN_model()
+    print(dncnn_model.summary())
+
+    checkpoint = ModelCheckpoint("DNCNN_check.h5", monitor='val_loss', verbose=1, save_best_only=True,
+                                 save_weights_only=False, mode='min')
+    callbacks_list = [checkpoint]
+
+    dncnn_model.fit(train_data, train_label, batch_size=128, validation_data=(val_data, val_label),
+                    callbacks=callbacks_list, shuffle=True, epochs=200, verbose=0)
+    dncnn_model.save_weights("DNCNN_" + channel_model + "_" + str(num_pilots) + "_" + str(SNR) + ".h5")
+\end{lstlisting}
+
+Hàm \verb|DNCNN_predict()| tải mô hình DnCNN đã được huấn luyện và sử dụng để dự đoán trên dữ liệu đầu vào \verb|input_data|.
+
+\begin{lstlisting}[language=Python]
+def DNCNN_predict(input_data, channel_model, num_pilots, SNR):
+    dncnn_model = DNCNN_model()
+    dncnn_model.load_weights("DNCNN_" + channel_model + "_" + str(num_pilots) + "_" + str(SNR) + ".h5")
+    predicted = dncnn_model.predict(input_data)
+    return predicted
+\end{lstlisting}

@@ -1,0 +1,19 @@
+\contentsline {section}{\numberline {1}Giới thiệu tổng quan}{1}{section.1}%
+\contentsline {section}{\numberline {2}Mô hình hệ thống}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Mô hình kênh vô tuyến}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Ký tự pilot}{3}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Giải pháp ước lượng kênh MMSE, LS, và máy học}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Ước lượng kênh bằng MMSE}{5}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Nguyên lý của phương pháp MMSE}{5}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Công thức MMSE}{5}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Ước lượng kênh tại các vị trí không phải pilot}{6}{subsubsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.2}Ước lượng kênh bằng LS}{7}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Nguyên lý của phương pháp LS}{7}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Công thức ước lượng LS}{7}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Ước lượng LS tại các vị trí pilot}{8}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Nội suy để ước lượng kênh tại các vị trí không phải pilot}{8}{subsubsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.3}Ước lượng kênh bằng kĩ thuật học sâu}{9}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Nguyên lý của ước lượng kênh dựa trên học sâu}{9}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Kiến trúc mạng học sâu cho ước lượng kênh}{9}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Quy trình ước lượng kênh dựa trên học sâu}{10}{subsubsection.3.3.3}%
+\contentsline {section}{\numberline {4}Chương trình Python mô phỏng ước lượng kênh truyền}{12}{section.4}%

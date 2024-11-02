@@ -1,0 +1,93 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[fontsize=12pt]{fontsize}
+\renewcommand{\baselinestretch}{1.25} 
+
+\usepackage[margin=1in]{geometry}
+
+\usepackage[utf8]{vietnam}
+% \usepackage[vietnamese]{babel} 
+
+\usepackage[dvipsnames, table]{xcolor} % for coloring
+\usepackage{amsmath} % extension for math environment
+\usepackage{bm} % bold math symbol
+\usepackage{fancyvrb} % fancy verbatim
+\usepackage{fvextra} % fancy verbatim extra
+    \fvset{breaklines=true}
+
+\usepackage[skip=.5em]{caption} % adjust spacing between figure and caption
+\usepackage{subcaption}
+
+% \usepackage[pdftex]{graphicx}
+% \usepackage{url} 
+\usepackage[bookmarks, 
+    colorlinks=false, 
+    pdfborder={0 0 0}, 
+    pdftitle={Báo cáo BTL Thông tin di động}, 
+    pdfauthor={Phạm Khánh}
+]{hyperref} 
+
+\usepackage{tikz} 
+\usetikzlibrary{calc} % for drawing rectangle box at the cover
+
+% FOR TABLE:
+\usepackage{tabularx}
+    \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1\textwidth}}
+    \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1\textwidth}}
+    \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1\textwidth}
+} % custom table environment
+\usepackage{multirow}
+\renewcommand{\arraystretch}{1.2}
+\usepackage{longtable}
+
+\usepackage{enumitem} % adjusting enum and itemize environment
+    \setlist[itemize]{itemsep=0pt, topsep=3pt} % no item separation
+    \setlist[enumerate]{itemsep=0pt, topsep=3pt} 
+\usepackage{float} % forcing figure environment to be placed at an exact location
+
+\setlength{\parskip}{0.5em} % spacing between paragraphs
+\setlength\parindent{0pt} % do not indent the first paragraph
+
+\usepackage{listings} % for embedding code
+\lstset{frame=tb,
+  aboveskip=5mm,
+  belowskip=5mm,
+  showstringspaces=false,
+  columns=flexible,
+  % basicstyle={\small\ttfamily},
+  basicstyle={\ttfamily},
+  lineskip={.1em}, % in case line spacing is too wide
+  % numbers=none,
+  numberstyle=\tiny\color{blue},
+  keywordstyle=\color{red},
+  commentstyle=\color{pink},
+  stringstyle=\color{green},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=4, 
+  numbers=left,
+  frame=single
+}
+
+\usepackage{biblatex}
+\addbibresource{refs.bib}
+
+\begin{document}
+\renewcommand\bibname{Tài liệu tham khảo} 
+\renewcommand{\listfigurename}{Danh sách hình minh họa}
+
+\input{title}
+
+\pagenumbering{roman}
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic} 
+
+\include{1_gioi_thieu}
+\include{2_mo_hinh}
+\include{3_1_mmse}
+\include{3_2_ls}
+\include{3_3_ml}
+\include{4_sim}
+
+\end{document}

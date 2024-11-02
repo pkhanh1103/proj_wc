@@ -1,0 +1,64 @@
+\section{Giải pháp ước lượng kênh MMSE, LS, và máy học}
+
+\subsection{Ước lượng kênh bằng MMSE}
+
+Phương pháp Minimum Mean Square Error (MMSE) là một trong những phương pháp ước lượng kênh truyền tiên tiến, mang lại độ chính xác cao hơn so với Least Squares (LS) bằng cách sử dụng thông tin thống kê về kênh truyền và nhiễu. 
+MMSE không chỉ giảm thiểu sai số giữa kênh ước lượng và kênh thực mà còn tối ưu hóa hiệu suất trong môi trường có nhiễu và fading mạnh. 
+
+\subsubsection{Nguyên lý của phương pháp MMSE}
+
+MMSE dựa trên việc tối thiểu hóa trung bình bình phương sai số (MSE) giữa kênh truyền thực tế và kênh ước lượng. 
+Điều này có nghĩa là MMSE không chỉ dựa vào tín hiệu đã nhận mà còn sử dụng thông tin thống kê về kênh truyền và nhiễu, 
+từ đó đưa ra ước lượng tốt hơn so với LS. 
+Cụ thể, MMSE cố gắng tối thiểu hóa sai số kỳ vọng giữa kênh thực và kênh ước lượng bằng cách tìm ma trận lọc tối ưu.
+
+Giả sử mô hình kênh truyền trong hệ thống là:
+
+\begin{equation}
+    \bm{Y} = \bm{H} \cdot \bm{X} + \bm{N}
+\end{equation}
+
+Trong đó:
+\begin{itemize}
+    \item $\bm{Y}$: Tín hiệu nhận được tại thiết bị thu.
+    \item $\bm{X}$: Tín hiệu đã truyền đi từ máy phát.
+    \item $\bm{H}$: Ma trận kênh vô tuyến biểu diễn đặc tính của kênh (suy hao, trễ, tán xạ).
+    \item $\bm{N}$: Nhiễu trắng Gaussian cộng (AWGN), mô tả nhiễu ảnh hưởng đến tín hiệu.
+\end{itemize}
+
+Phương pháp MMSE tìm cách tối thiểu hóa sai số kỳ vọng giữa kênh thực $\bm{H}$ và kênh ước lượng $\bm{\hat{H}}$, hay:
+
+\begin{equation}
+    \epsilon = \bm{E} \left[ \| \bm{H} - \bm{\hat{H}} \|^2 \right]
+\end{equation}
+
+\subsubsection{Công thức MMSE}
+
+Giả sử tín hiệu nhận được tại các vị trí pilot là \( \bm{Y_p} \) và tín hiệu pilot đã truyền là \( \bm{X_p} \), phương trình mô tả tín hiệu sẽ là:
+
+\begin{equation}
+    \bm{Y_p} = \bm{H_p} \cdot \bm{X_p} + \bm{N_p}
+\end{equation}
+
+Phương pháp MMSE ước lượng kênh tại các vị trí pilot thông qua công thức:
+
+\begin{equation}
+    \bm{H_{MMSE}} = \bm{R_{hy}} \cdot (\bm{R_{yy}} + \sigma_n^2 \bm{I})^{-1} \cdot \bm{Y_p}
+\end{equation}
+
+Trong đó:
+\begin{itemize}
+    \item $\bm{R_{hy}}$ là ma trận tương quan giữa kênh thực và tín hiệu nhận được (còn gọi là ma trận tương quan chéo giữa $\bm{H}$ và $\bm{Y}$),
+    \item $\bm{R_{yy}}$ là ma trận tương quan của tín hiệu nhận được tại các vị trí pilot,
+    \item $\sigma_n^2$ là phương sai của nhiễu cộng Gaussian,
+    \item $\bm{I}$ là ma trận đơn vị.
+\end{itemize}
+
+Phương pháp này dựa vào việc mô tả thống kê của kênh truyền và tín hiệu nhận được. 
+Nếu các ma trận tương quan này được ước lượng chính xác, MMSE sẽ cho kết quả ước lượng kênh chính xác hơn đáng kể so với LS.
+
+\subsubsection{Ước lượng kênh tại các vị trí không phải pilot}
+
+Để ước lượng kênh tại các vị trí không phải pilot, phương pháp nội suy có thể được áp dụng. 
+Do MMSE đã khai thác thông tin thống kê của kênh, kết quả nội suy thường chính xác hơn so với nội suy từ ước lượng LS.
+
