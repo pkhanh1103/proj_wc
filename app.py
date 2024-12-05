@@ -130,7 +130,7 @@ def channel_net_predict():
 
     # ------ prediction using SRCNN ------
     srcnn_pred_train = SRCNN_predict(train_data, channel_model, number_of_pilots, snr)
-    srcnn_pred_validation = SRCNN_predict(train_data, channel_model, number_of_pilots, snr)
+    srcnn_pred_validation = SRCNN_predict(val_data, channel_model, number_of_pilots, snr)
 
     # ------ training DNCNN ------
     # DNCNN_train(input_data, channel_model , Number_of_pilots , SNR):

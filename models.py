@@ -24,6 +24,7 @@ def psnr(target, ref):
 def interpolation(noisy, snr, number_of_pilot, interp):
     noisy_image = np.zeros((40000, 72, 14, 2))
 
+    # Tách ảnh thành phần thực và phần ảo
     noisy_image[:, :, :, 0] = np.real(noisy)
     noisy_image[:, :, :, 1] = np.imag(noisy)
 
@@ -94,19 +95,19 @@ def SRCNN_train(train_data, train_label, val_data, val_label, channel_model, num
     srcnn_model = SRCNN_model()
     print(srcnn_model.summary())
 
-    checkpoint = ModelCheckpoint("SRCNN_check.h5", monitor='val_loss', verbose=1, save_best_only=True,
+    checkpoint = ModelCheckpoint("trained_nets/SRCNN_check.keras", monitor='val_loss', verbose=1, save_best_only=True,
                                  save_weights_only=False, mode='min')
     callbacks_list = [checkpoint]
 
     srcnn_model.fit(train_data, train_label, batch_size=128, validation_data=(val_data, val_label),
-                    callbacks=callbacks_list, shuffle=True, epochs=300, verbose=0)
+                    callbacks=callbacks_list, shuffle=True, epochs=1, verbose=0)
 
-    srcnn_model.save_weights("SRCNN_" + channel_model + "_" + str(num_pilots) + "_" + str(SNR) + ".h5")
+    srcnn_model.save_weights("trained_nets/SRCNN_" + channel_model + "_" + str(num_pilots) + "_" + str(SNR) + ".keras")
 
 
 def SRCNN_predict(input_data, channel_model, num_pilots, SNR):
     srcnn_model = SRCNN_model()
-    srcnn_model.load_weights("SRCNN_" + channel_model + "_" + str(num_pilots) + "_" + str(SNR) + ".h5")
+    srcnn_model.load_weights("trained_nets/SRCNN_" + channel_model + "_" + str(num_pilots) + "_" + str(SNR) + ".keras")
     predicted = srcnn_model.predict(input_data)
     return predicted
 
