@@ -1,5 +1,7 @@
-# Data
+# Khanh
 data/
+trained_nets/
+archive/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

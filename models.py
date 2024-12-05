@@ -21,8 +21,8 @@ def psnr(target, ref):
     return 20 * math.log10(255. / rmse)
 
 
-def interpolation(noisy, snr, number_of_pilot, interp):
-    noisy_image = np.zeros((40000, 72, 14, 2))
+def interpolation(noisy, snr, n_pilots, n_samples, interp):
+    noisy_image = np.zeros((n_samples, 72, 14, 2))
 
     # Tách ảnh thành phần thực và phần ảo
     noisy_image[:, :, :, 0] = np.real(noisy)
@@ -30,24 +30,24 @@ def interpolation(noisy, snr, number_of_pilot, interp):
 
     idx = []
 
-    if number_of_pilot == 48:
+    if n_pilots == 48:
         idx = [14 * i for i in range(1, 72, 6)] + [4 + 14 * i for i in range(4, 72, 6)] + \
               [7 + 14 * i for i in range(1, 72, 6)] + [11 + 14 * i for i in range(4, 72, 6)]
-    elif number_of_pilot == 16:
+    elif n_pilots == 16:
         idx = [4 + 14 * i for i in range(1, 72, 9)] + [9 + 14 * i for i in range(4, 72, 9)]
-    elif number_of_pilot == 24:
+    elif n_pilots == 24:
         idx = [14 * i for i in range(1, 72, 9)] + [6 + 14 * i for i in range(4, 72, 9)] + [11 + 14 * i for i in
                                                                                            range(1, 72, 9)]
-    elif number_of_pilot == 8:
+    elif n_pilots == 8:
         idx = [4 + 14 * i for i in range(5, 72, 18)] + [9 + 14 * i for i in range(8, 72, 18)]
-    elif number_of_pilot == 36:
+    elif n_pilots == 36:
         idx = [14 * i for i in range(1, 72, 6)] + [6 + 14 * i for i in range(4, 72, 6)] + [11 + 14 * i for i in
                                                                                            range(1, 72, 6)]
 
     r = [x // 14 for x in idx]
     c = [x % 14 for x in idx]
 
-    interp_noisy = np.zeros((40000, 72, 14, 2))
+    interp_noisy = np.zeros((n_samples, 72, 14, 2))
 
     for i in range(len(noisy)):
         z = [noisy_image[i, j, k, 0] for j, k in zip(r, c)]
@@ -71,8 +71,8 @@ def interpolation(noisy, snr, number_of_pilot, interp):
             z_intp = interpolate.bisplev(range(72), range(14), tck)
             interp_noisy[i, :, :, 1] = z_intp
 
-    interp_noisy = np.concatenate((interp_noisy[:, :, :, 0], interp_noisy[:, :, :, 1]), axis=0).reshape(80000, 72, 14,
-                                                                                                        1)
+    interp_noisy = np.concatenate((interp_noisy[:, :, :, 0], 
+                                   interp_noisy[:, :, :, 1]), axis=0).reshape(2*n_samples, 72, 14, 1)
 
     return interp_noisy
 
@@ -91,7 +91,7 @@ def SRCNN_model():
     return model
 
 
-def SRCNN_train(train_data, train_label, val_data, val_label, channel_model, num_pilots, SNR):
+def SRCNN_train(train_data, train_label, val_data, val_label, channel_model, num_pilots, SNR, n_samples):
     srcnn_model = SRCNN_model()
     print(srcnn_model.summary())
 
@@ -100,14 +100,16 @@ def SRCNN_train(train_data, train_label, val_data, val_label, channel_model, num
     callbacks_list = [checkpoint]
 
     srcnn_model.fit(train_data, train_label, batch_size=128, validation_data=(val_data, val_label),
-                    callbacks=callbacks_list, shuffle=True, epochs=1, verbose=0)
+                    callbacks=callbacks_list, shuffle=True, epochs=10, verbose=0)
 
-    srcnn_model.save_weights("trained_nets/SRCNN_" + channel_model + "_" + str(num_pilots) + "_" + str(SNR) + ".keras")
+    srcnn_model.save_weights("trained_nets/SRCNN_%s_%d_%d_%d.weights.h5" 
+                             % (channel_model, num_pilots, SNR, n_samples))
 
 
-def SRCNN_predict(input_data, channel_model, num_pilots, SNR):
+def SRCNN_predict(input_data, channel_model, num_pilots, SNR, n_samples):
     srcnn_model = SRCNN_model()
-    srcnn_model.load_weights("trained_nets/SRCNN_" + channel_model + "_" + str(num_pilots) + "_" + str(SNR) + ".keras")
+    srcnn_model.load_weights("trained_nets/SRCNN_%s_%d_%d_%d.weights.h5" 
+                             % (channel_model, num_pilots, SNR, n_samples))
     predicted = srcnn_model.predict(input_data)
     return predicted
 
