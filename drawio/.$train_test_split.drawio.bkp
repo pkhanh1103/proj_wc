@@ -1,0 +1,40 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
+  <diagram name="Page-1" id="qnYGtCQ6HmbTMiV9DPt-">
+    <mxGraphModel dx="808" dy="484" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="1" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="mbtqhHkirMsXsLDekw4L-3" value="loadmat()&lt;br&gt;Tách phần thực và ảo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="mbtqhHkirMsXsLDekw4L-1" target="mbtqhHkirMsXsLDekw4L-2">
+          <mxGeometry x="-0.0588" y="20" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mbtqhHkirMsXsLDekw4L-1" value="Perfect_H_40000.mat&lt;br&gt;Kích thước&lt;br&gt;\(n_{samples} \times n_{subs} \times n_{slots}\)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="40" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mbtqhHkirMsXsLDekw4L-2" value="Ma trận \(perfect\_image\)&lt;br&gt;Kích thước &lt;br&gt;\(2n_{samples} \times n_{subs} \times n_{slots}\)" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="570" y="40" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mbtqhHkirMsXsLDekw4L-7" value="loadmat()&lt;br&gt;Tách phần thực và ảo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="mbtqhHkirMsXsLDekw4L-4" target="mbtqhHkirMsXsLDekw4L-6">
+          <mxGeometry x="-0.0769" y="20" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mbtqhHkirMsXsLDekw4L-4" value="My_noisy_H_12.mat&lt;br&gt;Kích thước&lt;br&gt;\(n_{samples} \times n_{subs} \times n_{slots}\)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="120" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mbtqhHkirMsXsLDekw4L-9" value="Giữ lại các vị trí pilot&lt;br&gt;Nội suy các vị trí khác" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="mbtqhHkirMsXsLDekw4L-6" target="mbtqhHkirMsXsLDekw4L-8">
+          <mxGeometry y="20" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mbtqhHkirMsXsLDekw4L-6" value="Ma trận \(noisy\_image\)&lt;br&gt;Kích thước &lt;br&gt;\(2n_{samples} \times n_{subs} \times n_{slots}\)" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="120" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mbtqhHkirMsXsLDekw4L-8" value="Ma trận \(noisy\_interp\)&lt;br&gt;Kích thước &lt;br&gt;\(2n_{samples} \times n_{subs} \times n_{slots}\)" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="570" y="120" width="150" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

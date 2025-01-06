@@ -7,19 +7,21 @@ Mô hình hệ thống ước lượng kênh truyền vô tuyến mô tả quá 
 Kênh truyền vô tuyến có thể được mô tả bằng phương trình đầu vào – đầu ra như sau:
 
 \begin{equation}
-    \bm{Y} = \bm{H} \cdot \bm{X} + \bm{N}
+    \bm{y} = \bm{H} \cdot \bm{X} + \bm{n}
 \end{equation}
 
 Trong đó:
 \begin{itemize}
-    \item $\bm{Y}$: Tín hiệu nhận được tại thiết bị thu.
-    \item $\bm{X}$: Tín hiệu đã truyền đi từ máy phát.
+    \item $\bm{y}$: Tín hiệu nhận được tại thiết bị thu.
+    \item $\bm{x}$: Tín hiệu đã truyền đi từ máy phát.
     \item $\bm{H}$: Ma trận kênh vô tuyến biểu diễn đặc tính của kênh (suy hao, trễ, tán xạ).
-    \item $\bm{N}$: Nhiễu trắng Gaussian cộng (AWGN), mô tả nhiễu ảnh hưởng đến tín hiệu.
+    \item $\bm{n}$: Nhiễu trắng Gaussian cộng (AWGN), mô tả nhiễu ảnh hưởng đến tín hiệu.
 \end{itemize}
 
-$\bm{H}$ là yếu tố cần được ước lượng chính xác để thiết bị thu có thể bù trừ các tác động của kênh và khôi phục lại $\bm{X}$ từ tín hiệu thu được $\bm{Y}$. 
-Thông thường, kênh vô tuyến thay đổi theo thời gian và không gian, do đó việc ước lượng kênh đòi hỏi phải liên tục cập nhật trong suốt quá trình truyền dẫn.
+$\bm{H}$ là yếu tố cần được ước lượng chính xác để thiết bị thu có thể bù trừ các tác động của kênh 
+và khôi phục lại $\bm{X}$ từ tín hiệu thu được $\bm{Y}$. 
+Thông thường, kênh vô tuyến thay đổi theo thời gian và không gian, 
+do đó việc ước lượng kênh đòi hỏi phải liên tục cập nhật trong suốt quá trình truyền dẫn.
 
 \subsection{Ký tự pilot}
 

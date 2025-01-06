@@ -1,0 +1,39 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
+  <diagram name="Page-1" id="KojVv524Zxwe0iF0lzby">
+    <mxGraphModel dx="609" dy="361" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="1" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="k5SkOhxfnCoDqh-5vMLO-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="k5SkOhxfnCoDqh-5vMLO-6" target="k5SkOhxfnCoDqh-5vMLO-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="k5SkOhxfnCoDqh-5vMLO-6" value="$$\mathbf{H_p} = \mathbf{H_d} + \mathbf{nx_p^H}$$" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry y="80" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k5SkOhxfnCoDqh-5vMLO-7" value="$$\mathbf{H_d}$$" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="10" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k5SkOhxfnCoDqh-5vMLO-8" value="$$\mathbf{W}$$" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="75" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="k5SkOhxfnCoDqh-5vMLO-14" value="$$\mathbf{e}$$" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="k5SkOhxfnCoDqh-5vMLO-10">
+          <mxGeometry x="0.0565" y="-24" relative="1" as="geometry">
+            <mxPoint x="380" y="63.74999999999994" as="targetPoint" />
+            <mxPoint x="24" y="-24" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="k5SkOhxfnCoDqh-5vMLO-10" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.flowchart.summing_function;" vertex="1" parent="1">
+          <mxGeometry x="320" y="52.5" width="22.5" height="22.5" as="geometry" />
+        </mxCell>
+        <mxCell id="k5SkOhxfnCoDqh-5vMLO-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="k5SkOhxfnCoDqh-5vMLO-7" target="k5SkOhxfnCoDqh-5vMLO-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="k5SkOhxfnCoDqh-5vMLO-12" value="$$\mathbf{\hat{H}} = \mathbf{W H_p}$$" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="k5SkOhxfnCoDqh-5vMLO-8" target="k5SkOhxfnCoDqh-5vMLO-10">
+          <mxGeometry x="-0.2068" y="-25" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

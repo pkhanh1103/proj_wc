@@ -16,5 +16,340 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{Bellalta2016}{article}{}
+      \name{author}{1}{}{%
+        {{hash=15bb541b8ae41b1875cae8d42601b8f1}{%
+           family={Bellalta},
+           familyi={B\bibinitperiod},
+           given={Boris},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{15bb541b8ae41b1875cae8d42601b8f1}
+      \strng{fullhash}{15bb541b8ae41b1875cae8d42601b8f1}
+      \strng{bibnamehash}{15bb541b8ae41b1875cae8d42601b8f1}
+      \strng{authorbibnamehash}{15bb541b8ae41b1875cae8d42601b8f1}
+      \strng{authornamehash}{15bb541b8ae41b1875cae8d42601b8f1}
+      \strng{authorfullhash}{15bb541b8ae41b1875cae8d42601b8f1}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE wireless communications}
+      \field{number}{1}
+      \field{title}{IEEE 802.11 ax: High-efficiency WLANs}
+      \field{volume}{23}
+      \field{year}{2016}
+      \field{pages}{38\bibrangedash 46}
+      \range{pages}{9}
+    \endentry
+    \entry{Chun2019}{article}{}
+      \name{author}{3}{}{%
+        {{hash=db848e446b770a11131f8ace4aa6ab1b}{%
+           family={Chun},
+           familyi={C\bibinitperiod},
+           given={Chang-Jae},
+           giveni={C\bibinithyphendelim J\bibinitperiod}}}%
+        {{hash=63a1fba2449bef7e1ad9d8532f56a34c}{%
+           family={Kang},
+           familyi={K\bibinitperiod},
+           given={Jae-Mo},
+           giveni={J\bibinithyphendelim M\bibinitperiod}}}%
+        {{hash=38f9121299f679f4a35621b53f90141f}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Il-Min},
+           giveni={I\bibinithyphendelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{57caa24167396ab4058dd5a200528687}
+      \strng{fullhash}{57caa24167396ab4058dd5a200528687}
+      \strng{bibnamehash}{57caa24167396ab4058dd5a200528687}
+      \strng{authorbibnamehash}{57caa24167396ab4058dd5a200528687}
+      \strng{authornamehash}{57caa24167396ab4058dd5a200528687}
+      \strng{authorfullhash}{57caa24167396ab4058dd5a200528687}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Wireless Communications Letters}
+      \field{number}{4}
+      \field{title}{Deep learning-based channel estimation for massive MIMO systems}
+      \field{volume}{8}
+      \field{year}{2019}
+      \field{pages}{1228\bibrangedash 1231}
+      \range{pages}{4}
+    \endentry
+    \entry{Demetri2019}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=04411f6eb6b836eafa6627b289236341}{%
+           family={Demetri},
+           familyi={D\bibinitperiod},
+           given={Silvia},
+           giveni={S\bibinitperiod}}}%
+        {{hash=1e2168ac1e368a8bfcb0b2e3b946a73f}{%
+           family={Zúñiga},
+           familyi={Z\bibinitperiod},
+           given={Marco},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5d620f4adc6232b2b473645ce7fddf93}{%
+           family={Picco},
+           familyi={P\bibinitperiod},
+           given={Gian\bibnamedelima Pietro},
+           giveni={G\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=270409a6a1447475970ccf5c89b2e4b7}{%
+           family={Kuipers},
+           familyi={K\bibinitperiod},
+           given={Fernando},
+           giveni={F\bibinitperiod}}}%
+        {{hash=46e75800481c9dcd01ceb5cabac74ced}{%
+           family={Bruzzone},
+           familyi={B\bibinitperiod},
+           given={Lorenzo},
+           giveni={L\bibinitperiod}}}%
+        {{hash=7bad909db48fa7af08e4c36857c4171d}{%
+           family={Telkamp},
+           familyi={T\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{40fdf5077848736912b9d32fad77fef8}
+      \strng{fullhash}{d8dae6822fecbb484531b8d971503f8a}
+      \strng{bibnamehash}{40fdf5077848736912b9d32fad77fef8}
+      \strng{authorbibnamehash}{40fdf5077848736912b9d32fad77fef8}
+      \strng{authornamehash}{40fdf5077848736912b9d32fad77fef8}
+      \strng{authorfullhash}{d8dae6822fecbb484531b8d971503f8a}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 18th International Conference on Information Processing in Sensor Networks}
+      \field{title}{Automated estimation of link quality for LoRa: A remote sensing approach}
+      \field{year}{2019}
+      \field{pages}{145\bibrangedash 156}
+      \range{pages}{12}
+    \endentry
+    \entry{Hampton2008}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=6236102c102f1595909c1d349d3b0574}{%
+           family={Hampton},
+           familyi={H\bibinitperiod},
+           given={Jerry\bibnamedelima R},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=f3d1b5f0d929f36aeec6046da08c4998}{%
+           family={Cruz},
+           familyi={C\bibinitperiod},
+           given={Manuel\bibnamedelima A},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=290e53cbe76733f6a022d22a30ac00d9}{%
+           family={Merheb},
+           familyi={M\bibinitperiod},
+           given={Naim\bibnamedelima M},
+           giveni={N\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=f170e75a2362528556f9f0c91a0ef8bb}{%
+           family={Hammons},
+           familyi={H\bibinitperiod},
+           given={A\bibnamedelima Roger},
+           giveni={A\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=c2a0b6e467d5c81e067e06ddc6673ec6}{%
+           family={Paunil},
+           familyi={P\bibinitperiod},
+           given={Douglas\bibnamedelima E},
+           giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=3f55fec1e37b58f64a6a373f24ab0774}{%
+           family={Ouyang},
+           familyi={O\bibinitperiod},
+           given={Feng},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{96696b18b1758f25568539e580fc98b2}
+      \strng{fullhash}{f80714c88a37cda19cca6cb65915516c}
+      \strng{bibnamehash}{96696b18b1758f25568539e580fc98b2}
+      \strng{authorbibnamehash}{96696b18b1758f25568539e580fc98b2}
+      \strng{authornamehash}{96696b18b1758f25568539e580fc98b2}
+      \strng{authorfullhash}{f80714c88a37cda19cca6cb65915516c}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{MILCOM 2008-2008 IEEE Military Communications Conference}
+      \field{title}{MIMO channel measurements for urban military applications}
+      \field{year}{2008}
+      \field{pages}{1\bibrangedash 7}
+      \range{pages}{7}
+    \endentry
+    \entry{Huang2021}{article}{}
+      \name{author}{3}{}{%
+        {{hash=2d4f8292dc4766a60a6b26f70ceb4f5c}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Miaona},
+           giveni={M\bibinitperiod}}}%
+        {{hash=af06704764d8034ca33edc1493e66b7b}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Jun},
+           giveni={J\bibinitperiod}}}%
+        {{hash=02b2db2a520b7792b4d68a100e752a98}{%
+           family={Feng},
+           familyi={F\bibinitperiod},
+           given={Suili},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{4e96baac25fe73c7a7a8b9ba44fab874}
+      \strng{fullhash}{4e96baac25fe73c7a7a8b9ba44fab874}
+      \strng{bibnamehash}{4e96baac25fe73c7a7a8b9ba44fab874}
+      \strng{authorbibnamehash}{4e96baac25fe73c7a7a8b9ba44fab874}
+      \strng{authornamehash}{4e96baac25fe73c7a7a8b9ba44fab874}
+      \strng{authorfullhash}{4e96baac25fe73c7a7a8b9ba44fab874}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Vehicular Technology}
+      \field{number}{6}
+      \field{title}{Synchronization for OFDM-based satellite communication system}
+      \field{volume}{70}
+      \field{year}{2021}
+      \field{pages}{5693\bibrangedash 5702}
+      \range{pages}{10}
+    \endentry
+    \entry{Pan2021}{article}{}
+      \name{author}{6}{}{%
+        {{hash=387e4dbca181fb86e2e2de719709f681}{%
+           family={Pan},
+           familyi={P\bibinitperiod},
+           given={Jing},
+           giveni={J\bibinitperiod}}}%
+        {{hash=dfc1f23913348b4691ad0eb4ea685742}{%
+           family={Shan},
+           familyi={S\bibinitperiod},
+           given={Hangguan},
+           giveni={H\bibinitperiod}}}%
+        {{hash=459e3f8dc986d30ac9b03f32c2050464}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Rongpeng},
+           giveni={R\bibinitperiod}}}%
+        {{hash=5f3298e4a00544c4fbb1a8d2f04469fb}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Yingxiao},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=bd556a3218fd2defe0aec51fc71477f4}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Weihua},
+           giveni={W\bibinitperiod}}}%
+        {{hash=e24534f43a0ac23ce82b621ef2b75fab}{%
+           family={Quek},
+           familyi={Q\bibinitperiod},
+           given={Tony\bibnamedelima QS},
+           giveni={T\bibinitperiod\bibinitdelim Q\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{33f1468da316433aba351d228888bccd}
+      \strng{fullhash}{c3710fdf79e4cfa4877e1bca05d03f4d}
+      \strng{bibnamehash}{33f1468da316433aba351d228888bccd}
+      \strng{authorbibnamehash}{33f1468da316433aba351d228888bccd}
+      \strng{authornamehash}{33f1468da316433aba351d228888bccd}
+      \strng{authorfullhash}{c3710fdf79e4cfa4877e1bca05d03f4d}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Communications Letters}
+      \field{number}{6}
+      \field{title}{Channel estimation based on deep learning in vehicle-to-everything environments}
+      \field{volume}{25}
+      \field{year}{2021}
+      \field{pages}{1891\bibrangedash 1895}
+      \range{pages}{5}
+    \endentry
+    \entry{Rappaport2024}{book}{}
+      \name{author}{1}{}{%
+        {{hash=80e9f8fd303858ab30a541b6816ddfe8}{%
+           family={Rappaport},
+           familyi={R\bibinitperiod},
+           given={Theodore\bibnamedelima S},
+           giveni={T\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{80e9f8fd303858ab30a541b6816ddfe8}
+      \strng{fullhash}{80e9f8fd303858ab30a541b6816ddfe8}
+      \strng{bibnamehash}{80e9f8fd303858ab30a541b6816ddfe8}
+      \strng{authorbibnamehash}{80e9f8fd303858ab30a541b6816ddfe8}
+      \strng{authornamehash}{80e9f8fd303858ab30a541b6816ddfe8}
+      \strng{authorfullhash}{80e9f8fd303858ab30a541b6816ddfe8}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Wireless communications: principles and practice}
+      \field{year}{2024}
+    \endentry
+    \entry{Soltani2019}{article}{}
+      \name{author}{4}{}{%
+        {{hash=5918d6587d2437cb1ada5d1bcfd9347e}{%
+           family={Soltani},
+           familyi={S\bibinitperiod},
+           given={Mehran},
+           giveni={M\bibinitperiod}}}%
+        {{hash=03a1f306dc2a6956ea8d393bdb0c6c05}{%
+           family={Pourahmadi},
+           familyi={P\bibinitperiod},
+           given={Vahid},
+           giveni={V\bibinitperiod}}}%
+        {{hash=fc9bb8477f4e38946874636478764f3b}{%
+           family={Mirzaei},
+           familyi={M\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+        {{hash=5b78533fe499ee586147c038530da8bb}{%
+           family={Sheikhzadeh},
+           familyi={S\bibinitperiod},
+           given={Hamid},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{5efc23ba24a9afee100b172ebe9c046d}
+      \strng{fullhash}{4d064f8c54a762553064919c460c7e0c}
+      \strng{bibnamehash}{5efc23ba24a9afee100b172ebe9c046d}
+      \strng{authorbibnamehash}{5efc23ba24a9afee100b172ebe9c046d}
+      \strng{authornamehash}{5efc23ba24a9afee100b172ebe9c046d}
+      \strng{authorfullhash}{4d064f8c54a762553064919c460c7e0c}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Communications Letters}
+      \field{number}{4}
+      \field{title}{Deep learning-based channel estimation}
+      \field{volume}{23}
+      \field{year}{2019}
+      \field{pages}{652\bibrangedash 655}
+      \range{pages}{4}
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 

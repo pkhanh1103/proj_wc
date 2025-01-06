@@ -8,7 +8,7 @@
 % \usepackage[vietnamese]{babel} 
 
 \usepackage[dvipsnames, table]{xcolor} % for coloring
-\usepackage{amsmath} % extension for math environment
+\usepackage{amsmath, amsfonts} % extension for math environment
 \usepackage{bm} % bold math symbol
 \usepackage{fancyvrb} % fancy verbatim
 \usepackage{fvextra} % fancy verbatim extra
@@ -71,6 +71,9 @@
 \usepackage{biblatex}
 \addbibresource{refs.bib}
 
+\def \tr {\mathrm{trace}}
+\let \bb \mathbb
+
 \begin{document}
 \renewcommand\bibname{Tài liệu tham khảo} 
 \renewcommand{\listfigurename}{Danh sách hình minh họa}
@@ -89,5 +92,7 @@
 \include{3_2_mmse}
 \include{3_3_ml}
 \include{4_sim}
+\include{5_conclusion}
+\include{ref}
 
 \end{document}

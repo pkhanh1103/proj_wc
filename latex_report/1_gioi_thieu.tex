@@ -2,7 +2,7 @@
 
 Trong các hệ thống thông tin vô tuyến, kênh truyền đóng vai trò quan trọng do tín hiệu truyền qua kênh thường bị méo bởi các hiệu ứng như nhiễu, fading (suy hao), và tán xạ. 
 Để khôi phục được tín hiệu đã truyền, đầu thu cần phải ước lượng kênh (channel estimation), tức là xác định đặc tính của kênh truyền để bù đắp sự méo dạng của tín hiệu. 
-Việc ước lượng kênh hiệu quả giúp cải thiện chất lượng tín hiệu thu được và tăng cường hiệu suất của hệ thống truyền thông.
+Việc ước lượng kênh hiệu quả giúp cải thiện chất lượng tín hiệu thu được và tăng cường hiệu suất của hệ thống truyền thông \cite{Rappaport2024}.
 
 Ước lượng kênh thường được thực hiện bằng cách sử dụng các ký tự pilot - các tín hiệu đã biết trước, 
 được chèn vào trong khung thời gian hoặc tần số. 
@@ -21,16 +21,16 @@ Các phương pháp ước lượng kênh phổ biến có thể kể đến là
 
 Ước lượng kênh truyền vô tuyến đóng vai trò quan trọng trong nhiều ứng dụng thực tế, đặc biệt là trong các hệ thống truyền thông không dây. Một trong những ứng dụng phổ biến nhất là trong mạng di động như LTE (4G) và 5G NR. Trong các hệ thống này, ước lượng kênh được sử dụng để xử lý tín hiệu tại các trạm gốc và thiết bị đầu cuối, giúp đảm bảo truyền dữ liệu với độ chính xác cao, từ đó cải thiện chất lượng cuộc gọi, tốc độ truyền tải dữ liệu, và giảm thiểu hiện tượng mất gói tin.
 
-Bên cạnh đó, ước lượng kênh cũng rất quan trọng trong hệ thống Wi-Fi, đặc biệt với các chuẩn Wi-Fi tiên tiến như Wi-Fi 6 và Wi-Fi 7. Nó giúp điều chỉnh quá trình truyền tải dữ liệu qua các băng tần cao, đảm bảo kết nối nhanh và ổn định hơn, đồng thời giảm nhiễu và tăng cường hiệu suất mạng. Điều này đặc biệt hữu ích trong các môi trường nhiều thiết bị kết nối như văn phòng hoặc nhà thông minh.
+Bên cạnh đó, ước lượng kênh cũng rất quan trọng trong hệ thống Wi-Fi, đặc biệt với các chuẩn Wi-Fi tiên tiến như Wi-Fi 6 và Wi-Fi 7. Nó giúp điều chỉnh quá trình truyền tải dữ liệu qua các băng tần cao, đảm bảo kết nối nhanh và ổn định hơn, đồng thời giảm nhiễu và tăng cường hiệu suất mạng. Điều này đặc biệt hữu ích trong các môi trường nhiều thiết bị kết nối như văn phòng hoặc nhà thông minh \cite{Bellalta2016}.
 
-Trong các hệ thống liên lạc vệ tinh, ước lượng kênh giúp tối ưu hóa tín hiệu khi truyền qua khoảng cách xa và qua các môi trường khắc nghiệt như không gian và bầu khí quyển. Nhờ đó, tín hiệu truyền từ vệ tinh đến các trạm mặt đất hoặc ngược lại có thể được phục hồi chính xác, đảm bảo truyền tải dữ liệu an toàn và tin cậy, đặc biệt là trong các ứng dụng điều khiển từ xa hay viễn thám.
+Trong các hệ thống liên lạc vệ tinh, ước lượng kênh giúp tối ưu hóa tín hiệu khi truyền qua khoảng cách xa và qua các môi trường khắc nghiệt như không gian và bầu khí quyển. Nhờ đó, tín hiệu truyền từ vệ tinh đến các trạm mặt đất hoặc ngược lại có thể được phục hồi chính xác, đảm bảo truyền tải dữ liệu an toàn và tin cậy, đặc biệt là trong các ứng dụng điều khiển từ xa hay viễn thám \cite{Huang2021}.
 
-Trong lĩnh vực giao tiếp giữa các phương tiện, ước lượng kênh hỗ trợ mạnh mẽ cho hệ thống V2X (Vehicle-to-Everything), bao gồm giao tiếp giữa các phương tiện với nhau (V2V) hoặc giữa phương tiện và hạ tầng (V2I). Với tốc độ cao và điều kiện môi trường thay đổi liên tục, việc ước lượng kênh chính xác giúp đảm bảo truyền thông ổn định và kịp thời, tăng cường an toàn giao thông và hỗ trợ các hệ thống xe tự lái.
+Trong lĩnh vực giao tiếp giữa các phương tiện, ước lượng kênh hỗ trợ mạnh mẽ cho hệ thống V2X (Vehicle-to-Everything), bao gồm giao tiếp giữa các phương tiện với nhau (V2V) hoặc giữa phương tiện và hạ tầng (V2I). Với tốc độ cao và điều kiện môi trường thay đổi liên tục, việc ước lượng kênh chính xác giúp đảm bảo truyền thông ổn định và kịp thời, tăng cường an toàn giao thông và hỗ trợ các hệ thống xe tự lái \cite{Pan2021}.
 
-Một ứng dụng quan trọng khác là trong các hệ thống MIMO (Multiple Input Multiple Output), đặc biệt với 5G. Trong các hệ thống này, việc sử dụng nhiều anten để truyền tải và nhận tín hiệu yêu cầu một mô hình ước lượng kênh hiệu quả để tối ưu hóa băng thông và tốc độ truyền dữ liệu. Ước lượng kênh giúp hệ thống khai thác hiệu quả sự đa dạng của các kênh vô tuyến mà không tăng thêm yêu cầu về băng thông.
+Một ứng dụng quan trọng khác là trong các hệ thống MIMO (Multiple Input Multiple Output), đặc biệt với 5G. Trong các hệ thống này, việc sử dụng nhiều anten để truyền tải và nhận tín hiệu yêu cầu một mô hình ước lượng kênh hiệu quả để tối ưu hóa băng thông và tốc độ truyền dữ liệu. Ước lượng kênh giúp hệ thống khai thác hiệu quả sự đa dạng của các kênh vô tuyến mà không tăng thêm yêu cầu về băng thông \cite{Chun2019}.
 
-Ngoài ra, ước lượng kênh còn có ứng dụng trong các hệ thống radar và truyền thông quân sự, nơi tín hiệu phải đi qua những điều kiện môi trường phức tạp và bị nhiễu. Ước lượng kênh giúp tăng độ chính xác trong việc tái tạo tín hiệu, từ đó cung cấp thông tin liên lạc đáng tin cậy và an toàn trong các nhiệm vụ quân sự hoặc do thám.
+Ngoài ra, ước lượng kênh còn có ứng dụng trong các hệ thống radar và truyền thông quân sự, nơi tín hiệu phải đi qua những điều kiện môi trường phức tạp và bị nhiễu. Ước lượng kênh giúp tăng độ chính xác trong việc tái tạo tín hiệu, từ đó cung cấp thông tin liên lạc đáng tin cậy và an toàn trong các nhiệm vụ quân sự hoặc do thám \cite{Hampton2008}.
 
-Cuối cùng, trong các hệ thống Internet vạn vật (IoT), ước lượng kênh giúp các thiết bị cảm biến không dây hoạt động hiệu quả hơn trong các môi trường có nhiều nhiễu và thay đổi nhanh chóng về điều kiện kênh. Điều này đặc biệt quan trọng với các ứng dụng truyền thông tầm xa như LoRa, giúp duy trì kết nối ổn định và tiết kiệm năng lượng trong các mạng lưới cảm biến diện rộng.
+Cuối cùng, trong các hệ thống Internet vạn vật (IoT), ước lượng kênh giúp các thiết bị cảm biến không dây hoạt động hiệu quả hơn trong các môi trường có nhiều nhiễu và thay đổi nhanh chóng về điều kiện kênh. Điều này đặc biệt quan trọng với các ứng dụng truyền thông tầm xa như LoRa, giúp duy trì kết nối ổn định và tiết kiệm năng lượng trong các mạng lưới cảm biến diện rộng \cite{Demetri2019}.
 
 Như vậy, ước lượng kênh truyền vô tuyến không chỉ là một phần không thể thiếu của các hệ thống truyền thông hiện đại mà còn là yếu tố quyết định hiệu suất và độ tin cậy trong nhiều ứng dụng khác nhau, từ mạng di động, Wi-Fi, đến các lĩnh vực chuyên biệt như liên lạc vệ tinh và hệ thống IoT.
