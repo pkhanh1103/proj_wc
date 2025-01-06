@@ -1,7 +1,0 @@
-pandas
-keras
-scipy
-numpy
-matplotlib
-tensorflow-cpu
-scikit-learn
